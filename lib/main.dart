@@ -56,9 +56,9 @@ class _HomeState extends State<Home> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         labelText: "Peso em quilos",
-                        labelStyle: TextStyle(color: Colors.blue[700], fontWeight: FontWeight.bold)),
+                        labelStyle: TextStyle(color: Color(0XFF1921D2), fontWeight: FontWeight.bold)),
                     textAlign: TextAlign.center,
-                    style: TextStyle (color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+                    style: TextStyle (color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
                     controller: pesoController,
                     validator: (value){
                       if(value!.isEmpty){
@@ -70,9 +70,9 @@ class _HomeState extends State<Home> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         labelText: "Sua altura em CM",
-                        labelStyle: TextStyle(color: Colors.blue[700], fontWeight: FontWeight.bold)),
+                        labelStyle: TextStyle(color: Color(0XFF1921D2), fontWeight: FontWeight.bold)),
                     textAlign: TextAlign.center,
-                    style: TextStyle (color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+                    style: TextStyle (color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
                     controller: alturaController,
                     validator: (value){
                       if(value!.isEmpty){
@@ -80,6 +80,7 @@ class _HomeState extends State<Home> {
                       }
                     }
                 ),
+                
                 Padding(
                   padding: EdgeInsets.all(30),
                   child: Container(
@@ -92,14 +93,14 @@ class _HomeState extends State<Home> {
                         }
                       },
                       child: Text("Calcular",
-                        style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold)
-                      )
+                        style: TextStyle(color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ),
                 ),
                 Text(_mensagem,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black, fontSize: 30, fontWeight: FontWeight.bold),
+                  style: TextStyle(color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
                   
                 )
               ],
@@ -108,6 +109,9 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+
+// Adicionar: semanticLabel: 'Botão Calcular'
+
   void _calcular(){
     setState(() {
       double peso=double.parse(pesoController.text);
