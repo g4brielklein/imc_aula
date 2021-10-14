@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    const MaterialApp(
       home: Home(),
       debugShowCheckedModeBanner: false,
     ),
@@ -36,29 +36,32 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("IMC"),
+        title: Semantics( child: const Text("IMC"), label: "Calculadora de Índice de Massa Corporal",),
         centerTitle: true,
         backgroundColor: Colors.blue,
         actions:[
-          IconButton(onPressed: _reset, icon:Icon(Icons.refresh))
+          Semantics( child: IconButton(onPressed: _reset, icon:Icon(Icons.refresh)), label: "Limpar dados inseridos",)
         ],
       ),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Form(
             key: _formKey,/// fazer
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Icon(Icons.person_outline, size: 100, color: Colors.blue,),
+                Semantics(
+                  child: const Icon(Icons.person_outline, size: 100, color: Color(0XFF1921D2)),
+                  label: "Ícone do usuário"
+                ),
                 TextFormField(
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: "Peso em quilos",
                         labelStyle: TextStyle(color: Color(0XFF1921D2), fontWeight: FontWeight.bold)),
                     textAlign: TextAlign.center,
-                    style: TextStyle (color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
+                    style: const TextStyle (color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
                     controller: pesoController,
                     validator: (value){
                       if(value!.isEmpty){
@@ -68,11 +71,11 @@ class _HomeState extends State<Home> {
                 ),
                 TextFormField(
                     keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         labelText: "Sua altura em CM",
                         labelStyle: TextStyle(color: Color(0XFF1921D2), fontWeight: FontWeight.bold)),
                     textAlign: TextAlign.center,
-                    style: TextStyle (color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
+                    style: const TextStyle (color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
                     controller: alturaController,
                     validator: (value){
                       if(value!.isEmpty){
@@ -92,7 +95,7 @@ class _HomeState extends State<Home> {
                           _calcular();
                         }
                       },
-                      child: Text("Calcular",
+                      child: const Text("Calcular",
                         style: TextStyle(color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -100,7 +103,7 @@ class _HomeState extends State<Home> {
                 ),
                 Text(_mensagem,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: Color(0XFF1921D2), fontSize: 30, fontWeight: FontWeight.bold),
                   
                 )
               ],
